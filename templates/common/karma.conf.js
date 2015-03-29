@@ -47,8 +47,9 @@ module.exports = function (config) {
       },
       resolve: {
         alias: {
-          'styles': path.join(process.cwd(), './src/styles/'),
-          'components': path.join(process.cwd(), './src/scripts/components/')
+          'styles': path.join(process.cwd(), './src/styles'),
+          'components': path.join(process.cwd(), './src/components'),
+          'images': path.join(process.cwd(), './src/images')
         }
       }
     },

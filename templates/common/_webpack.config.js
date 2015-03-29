@@ -6,6 +6,8 @@
  */
 'use strict';
 var webpack = require('webpack');
+var path = require('path');
+
 
 module.exports = {
 
@@ -19,7 +21,7 @@ module.exports = {
   devtool: false,
   entry: [
       'webpack/hot/only-dev-server',
-      './src/scripts/components/<% if (reactRouter) { %>main<% } else { %><%= scriptAppName %><% } %>.js'
+      path.join(process.cwd(), './src/components/<% if (reactRouter) { %>main<% } else { %><%= scriptAppName %><% } %>.js')
   ],
 
   stats: {
@@ -30,8 +32,9 @@ module.exports = {
   resolve: {
     extensions: ['', '.js'],
     alias: {
-      'styles': '../../../src/styles',
-      'components': '../../../src/scripts/components/'
+      'styles': path.join(process.cwd(), './src/styles'),
+      'components': path.join(process.cwd(), './src/components'),
+      'images': path.join(process.cwd(), './src/images')
     }
   },
   module: {
